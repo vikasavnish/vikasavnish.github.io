@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!--Import Google Icon Font-->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+	.selected{
+		background-color: #ff9e80;
+	}
+	.bad{
+		background-color: #ffcdd2;
+	}
+	.good{
+		background-color: #c5e1a5 ;
+	}
+	li.sub{list-style: none;}
+	
+
+</style>
+</head>
+<body>
+
+<div class="row">
+<input type="text" class="search" onkeyup="filters(this)">
+<li class="sub card-panel">one</li>
+<li class="sub card-panel">two</li>
+<li class="sub card-panel">three</li>
+<li class="sub card-panel">four</li>
+<li class="sub card-panel">five</li>
+<li class="sub card-panel">six</li>
+<li class="sub card-panel">seven</li>
+<li class="sub card-panel">eight</li>
+<li class="sub card-panel">nine</li>
+<li class="sub card-panel">ten</li>
+</div>
+	
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+	  <script>
+	 
+	  	filters=function(a){
+	  		whattofilter=$(a).val();
+	  		$('li.sub').each(function(){
+	  				itsvalue=$(this).text();
+	  				n = itsvalue.indexOf(whattofilter);
+	  				if(n>=0){
+
+	  						$(this).show();
+	  				}
+	  				else{
+	  					$(this).hide();
+	  				}
+	  		})
+	  		
+	  	}
+
+	  
+	  </script>
+</body>
+</html>
+
