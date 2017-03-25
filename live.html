@@ -1,1 +1,97 @@
 
+
+<!DOCTYPE html>
+<head>
+  <title>Essaycorp Live Tweets</title>
+
+  <!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/materialize/0.97.8/css/materialize.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.ui/1.11.4/jquery-ui.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontawesome/4.7.0/css/font-awesome.min.css">
+    <!-- Compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/pouchdb/6.1.1/pouchdb.min.js"></script>
+<script src="https://cdn.jsdelivr.net/vue/2.1.9/vue.min.js"></script>
+<script src="https://js.pusher.com/3.2/pusher.min.js"></script>
+<script src="https://cdn.jsdelivr.net/materialize/0.97.8/js/materialize.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+  <div id="msgbox">
+    <ol>
+      <li v-for="todo in todos">
+        <button class="btn waves-effect waves-light right" > {{ todo.data.srcs }}
+         </button>
+        <div class="">
+<a v-on:click="click(todo.data.name)">{{todo.data.name}}</a>
+          <div class="chip" >
+ <img v-bind:src="todo.data.pfimg" alt="todo.data.name" v-bind:title="todo.data.desc"/>
+{{ todo.data.name }}
+
+</div><p>{{ todo.data.text }}
+  <form class="" action="tw.php" method="post" onclick="return false;">
+    <input type="text" name="" value="" placeholder="type reply and hit enter. I will save it" >
+
+  </form>
+</p>
+
+        </div>
+
+      </li>
+    </ol>
+  </div>
+  <script>
+  var app4 = new Vue({
+    el: '#msgbox',
+    data: {
+      todos: [
+
+
+      ]
+    },
+    methods:{
+      click:function(msg){
+        var win = window.open("https://www.twitter.com/"+msg, '_blank');
+        //console.log(msg)
+      }
+    }
+  })
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = false;
+
+    var pusher = new Pusher('216ff1935f436a0f2eef', {
+      encrypted: true
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+      //console.log(data);
+      if(app4.todos.length>10){
+        app4.todos.pop();
+      }
+      app4.todos.unshift({data:data })
+      db.post({
+        data
+      }).then(function (response) {
+        // handle response
+      }).catch(function (err) {
+        console.log(err);
+      });
+    });
+
+var db = new PouchDB('todos');
+
+
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js', {
+    scope: '/nah/'
+  }).then(function(sw) {
+    console.log("service worker registered");
+  }).catch(function() {
+    console.log("service worker registration failed");
+  });
+}
+  </script>
+</body>
+</html>
