@@ -1,2 +1,6 @@
-<a href=javascript:(function()%7Bvar urls %3D prompt("Please enter the keywords")%3Bif (urls!%3D"")%7Blist_of_urls%3Durls.split("%3B")%3Bfor (i%3D0%3Bi<(list_of_urls.length)%3Bi%2B%2B)%7BlocalStorage.setItem("urls"%2Bi%2Clist_of_urls%5Bi%5D)%3BlocalStorage.setItem('url_index'%2C0)%3B%7D%7D%7D)() > set keywords </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
-<a href="" >Add urls </a>
+<a class="bookmarklet" href="javascript:(function()%7Bvar%20urls%20%3D%20prompt(%22Please%20enter%20the%20keywords%22)%3Bif%20(urls!%3D%22%22)%7Blist_of_urls%3Durls.split(%22%3A%22)for%20(i%3D0%3Bi%3C(list_of_urls.length)%3Bi%2B%2B)%7BlocalStorage.setItem(%22urls%22%2Bi%2Clist_of_urls%5Bi%5D)%3BlocalStorage.setItem('url_index'%2C0)%3B%7D%7D%7D)()">List all urls</a>
+
+
+<a class="bookmarklet" href="javascript:(function()%7Bget_keys_index%3DparseInt(localStorage.getItem(%22url_index%22))%3FparseInt(localStorage.getItem(%22url_index%22))%3A0%3Burl_key%3D%22urls%22%2Bget_keys_index%3Bget_url%3DlocalStorage.getItem(url_key)%3BlocalStorage.setItem('url_index'%2C%2B%2Bget_keys_index)%3Bdocument.getElementById('path-input').value%3Dget_url%3Bdocument.getElementsByName('urlnt')%5B0%5D.value%3Dget_url%7D)()">Add urls</a>
+
+
