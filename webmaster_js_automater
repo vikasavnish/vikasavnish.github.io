@@ -1,0 +1,21 @@
+var urls = prompt("Please enter the keywords");
+if (urls!=""){
+list_of_urls=urls.split(":")
+for (i=0;i<(list_of_urls.length);i++){
+localStorage.setItem("urls"+i,list_of_urls[i]);
+localStorage.setItem('url_index',0);
+}
+
+}
+
+for (i = 0; i < cars.length; i++) { 
+    text += cars[i] + "<br>";
+}
+
+
+get_keys_index=parseInt(localStorage.getItem("url_index"))?parseInt(localStorage.getItem("url_index")):0;
+url_key="urls"+get_keys_index;
+get_url=localStorage.getItem(url_key);
+localStorage.setItem('url_index',++get_keys_index);
+document.getElementById('path-input').value=get_url;
+document.getElementsByName('urlnt')[0].value=get_url;
