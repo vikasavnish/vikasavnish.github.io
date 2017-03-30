@@ -12,10 +12,18 @@ for (i = 0; i < cars.length; i++) {
     text += cars[i] + "<br>";
 }
 
-
 get_keys_index=parseInt(localStorage.getItem("url_index"))?parseInt(localStorage.getItem("url_index")):0;
 url_key="urls"+get_keys_index;
 get_url=localStorage.getItem(url_key);
 localStorage.setItem('url_index',++get_keys_index);
-document.getElementById('path-input').value=get_url;
 document.getElementsByName('urlnt')[0].value=get_url;
+external_fetch_location="https://www.google.com/webmasters/tools/submit-url";
+bing_base="http://www.bing.com/toolbox/submit-site-url?url=";
+if(window.location==external_fetch_location){
+external_url=bing_base+get_url;
+document.getElementsByClassName("goog-inline-block product-name-logo")[0].setAttribute("href",external_url);
+document.getElementsByClassName("goog-inline-block product-name-logo")[0].setAttribute("target","_blank");
+
+};
+document.getElementById('path-input').value=get_url;
+
