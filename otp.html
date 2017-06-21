@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+	<div class="otp">
+		
+	</div>
+	<script>
+		otp=new Object;
+		otp.length=20;
+		for(i=0;i<otp.length;i++){
+			box=`<input type='text' length=1 tab-index=${i} onkeyup='dothis(this)'>`
+			$('.otp').append(box)
+		}
+		dothis=function(tis){
+			vals=($(tis).val())
+			console.log(vals.length)
+			if (vals.length==1){
+				//$(tis).attr('disabled','disabled')
+
+				console.log($(tis).next('input').toggleClass('selected').focus())
+				$(tis).removeClass('selected')
+			}
+			if(vals.length>1){
+				$(tis).val('')
+			}
+			
+		}
+		$('.otp input').keyup(function(e){if(e.keyCode == 8){
+				$(this).prev('input').val('').focus()
+		}})
+	</script>
+<style>
+	.selected{border:solid red thin;}
+</style>
+</body>
+</html>
