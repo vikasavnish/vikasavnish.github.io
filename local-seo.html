@@ -6,11 +6,11 @@
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-  
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body class="container-fluid" style="width:600px;">
-<form id="keywords">
+<form id="keywords" onsubmit="d(this,event)">
 		<textarea class="col s8"></textarea>
 		<input type="submit" value="submit">
 </form>
@@ -69,12 +69,12 @@
 <style>
 
 </style>
- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+ 
 <!-- Compiled and minified CSS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
 
   <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+
           
 <script>
 	
@@ -101,12 +101,8 @@
   }
 
 
-  
- 
-
-  $('form#keywords').on('submit',function(e){
-	
-	kwd=$('textarea').val().split('\n')
+  d=function(a,b){
+ 	kwd=$('textarea').val().split('\n')
 	city_selected=$('input:checked[type=radio]').val()
 	geo=geo_params[city_selected];
 	url="https://www.google.co.in/search?source_ip=0.0.0.0&ie=UTF-8&oe=UTF-8&hl=en&noj=1&igu=1nomo=1&nota=1&biw=1075&bih=5000&num=100&";
@@ -115,18 +111,28 @@
 		item= kwd[i].replace(/\s+/g, '+').toLowerCase();
 		//alert(item)
 		urlt=url+geo+'&q='+item;
+		console.log(urlt)
+		setTimeout(function(){}, 3000);
+		window.open(urlt, '_blank');
 
 		//chrome.tabs.create({url: urlt});
-		window.open(urlt, '_blank');
 
 
 	}
 
 
 
-	
 
-})
+
+
+
+
+
+
+  b.preventDefault();
+  }
+ 
+
 
 </script>
 </style>
