@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Multi Purpose Tool for Digital Marketer</title>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body class="container-fluid" style="width:600px;">
+<form id="keywords">
+		<textarea class="col s8"></textarea>
+		<input type="submit" value="submit">
+</form>
+<div class="row">
+
+<input type="radio" name="group1" id="city1" value="Bangalore">
+<label for="city1">Bangalore</label>
+<input type="radio" name="group1" id="city2" value="Mumbai">
+<label for="city2">Mumbai</label>
+<input type="radio" name="group1" id="city3" value="Hyderabad">
+<label for="city3">Hyderabad</label>
+<input type="radio" name="group1" id="city4" value="New Delhi">
+<label for="city4">New Delhi</label>
+<input type="radio" name="group1" id="city5" value="Gurgaon">
+<label for="city5">Gurgaon</label>
+<input type="radio" name="group1" id="city6" value="Chennai">
+<label for="city6">Chennai</label>
+<input type="radio" name="group1" id="city7" value="India" checked>
+<label for="city7">India</label>
+<input type="radio" name="group1" id="city8" value="Kolkata">
+<label for="city8">Kolkata</label>
+<input type="radio" name="group1" id="city9" value="Faridabad">
+<label for="city9">Faridabad</label>
+<input type="radio" name="group1" id="city10" value="Noida">
+<label for="city10">Noida</label>
+<input type="radio" name="group1" id="city11" value="Ghaziabad">
+<label for="city11">Ghaziabad</label>
+<input type="radio" name="group1" id="city12" value="Navi Mumbai">
+<label for="city12">Navi Mumbai</label>
+<input type="radio" name="group1" id="city13" value="Thane">
+<label for="city13">Thane</label>
+<input type="radio" name="group1" id="city14" value="Pune">
+<label for="city14">Pune</label>
+<input type="radio" name="group1" id="city15" value="Jaipur">
+<label for="city15">Jaipur</label>
+<input type="radio" name="group1" id="city16" value="Surat">
+<label for="city16">Surat</label>
+<input type="radio" name="group1" id="city17" value="Chandigarh">
+<label for="city17">Chandigarh</label>
+</div>
+<div class="row">
+	
+
+
+<div class="play">
+	
+</div>
+
+<table class="status responsible-table bordered">
+	
+</div>
+<div class="placeholder" style="display: none"></div>
+<footer class="fixed">
+	<span>&copy; Vikas Avnish</span>
+</footer>
+<style>
+
+</style>
+ <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<!-- Compiled and minified CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+          
+<script>
+	
+
+ geo_params={
+'Bangalore':'uule=w+CAIQIFISCW1OtMlwFq47EeBPflHow9_4',
+'Mumbai':'uule=w+CAIQIFISCcHtRGYwxuc7EWmMZI2P7aRd',
+'Hyderabad':'uule=w+CAIQIFISCcfS6-ramcs7EcL7upKDt5Ou',
+'New Delhi':'uule=w+CAIQIFISCS22fjRb_Qw5Ec5NIE5Jt8JS',
+'Gurgaon':'uule=w+CAIQIFISCVmI44LVGQ05ER5LxuXoX88C',
+'Chennai':'uule=w+CAIQIFISCWEzfU_qZVI6ETPUY2gLp2Fu',
+'India':'uule=w+CAIQIFISCZG3kmvwX2MwEaYTQoWhT4zX',
+'Kolkata':'uule=w+CAIQIFISCWf2CEnbgvg5EbwsbI_mMOND',
+'Faridabad':'uule=w+CAIQIFISCbEkpPUV3Aw5EfLgUMh2BfXk',
+'Noida':'uule=w+CAIQIFISCXs1czGk5Qw5ET_AfMgwzv83',
+'Ghaziabad':'uule=w+CAIQIFISCd8PxUG78Qw5EbqYd2rSb_Dm',
+'Navi Mumbai':'uule=w+CAIQIFISCa0TH7jwuec7EWn4hRFo9xI8',
+'Thane':'uule=w+CAIQIFISCVn9dv78uOc7EYMCxfeFfTbP',
+'Pune':'uule=w+CAIQIFISCQERRmcuv8I7EUPjnp2_Q42C',
+'Jaipur':'uule=w+CAIQIFISCYHiV0zfSmw5EQku8gw6xuEM',
+'Surat':'uule=w+CAIQIFISCWMVHUFZTuA7EUKwOAkpWEX-',
+'Chandigraph':'uule=w+CAIQIFISCWvJbuYL7Q85Ef4Zc1L5Z_-l'
+
+  }
+
+
+  
+ 
+
+  $('form#keywords').on('submit',function(e){
+	
+	kwd=$('textarea').val().split('\n')
+	city_selected=$('input:checked[type=radio]').val()
+	geo=geo_params[city_selected];
+	url="https://www.google.co.in/search?source_ip=0.0.0.0&ie=UTF-8&oe=UTF-8&hl=en&noj=1&igu=1nomo=1&nota=1&biw=1075&bih=5000&num=100&";
+	for (i=0;i<kwd.length;i++){
+		
+		item= kwd[i].replace(/\s+/g, '+').toLowerCase();
+		//alert(item)
+		urlt=url+geo+'&q='+item;
+
+		chrome.tabs.create({url: urlt});
+
+
+	}
+
+
+
+	
+
+})
+
+</script>
+</style>
+
+</body>
+</html>
