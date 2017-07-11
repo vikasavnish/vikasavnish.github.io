@@ -116,7 +116,8 @@
 		//alert(item)
 		urlt=url+geo+'&q='+item;
 
-		chrome.tabs.create({url: urlt});
+		//chrome.tabs.create({url: urlt});
+		window.open(urlt, '_blank');
 
 
 	}
